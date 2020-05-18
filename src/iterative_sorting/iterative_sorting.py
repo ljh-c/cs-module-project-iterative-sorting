@@ -34,7 +34,26 @@ def bubble_sort(arr):
 
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
-    # Your code here
+    # maximum arg is not used in test, so it is set to 199
+    maximum = 199
 
+    # only for possible elements 0 - 9
+    counts = [0 for _ in range(0, maximum + 1)]
 
-    return arr
+    for num in arr:
+        if num < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        else:    
+            counts[num] += 1
+
+    sorted_arr = []
+
+    for i in range(0, len(counts)):
+        sorted_arr += [i] * counts[i]
+
+    return sorted_arr
+
+# NEXT TO DO: 
+# - negative values
+# - set smallest value
+# - compare objects with strings and numbers
